@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql
+    container_name: tsic-mysql
+    environment:
+      MYSQL_DATABASE: php_mysql_crud
+      MYSQL_USER: root
+      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: admin
+    ports:
+      - "3306:3306"
+    restart: always
+    
+  web:
+    image: jorge2510/tsic_p
+    container_name: tsic-php
+    ports:
+      - "80:80"
+    volumes:
+      - ./www:/var/www/html
+    links:
+      - mysql

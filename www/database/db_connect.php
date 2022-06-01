@@ -3,9 +3,9 @@
 session_start();
 // Connect
 $conn = mysqli_connect(
-  'localhost',
+  'MySql',
   'root',
-  '',
+  'admin',
   'php_mysql_crud'
 );
 ?>
